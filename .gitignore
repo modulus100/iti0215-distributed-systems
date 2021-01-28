@@ -1,0 +1,10 @@
+.gradle
+.idea
+
+app/build
+
+buildSrc/.gradle
+buildSrc/build
+
+list/build
+utilities/build
