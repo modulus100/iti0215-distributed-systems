@@ -1,6 +1,8 @@
 # iti0215-distributed-systems
 
-This project is based on gradle version 6.8.1
+The main goal is to create project which represents minimalistic microservices
+architecture without using popular frameworks. This project is based on Java 15
+and gradle version 6.8.1.
 
 ## Build
 `gradle build
@@ -14,4 +16,3 @@ This project is based on gradle version 6.8.1
 
 `gradle test
 `
-
