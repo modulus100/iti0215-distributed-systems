@@ -17,5 +17,5 @@ dependencies {
 }
 
 war {
-    archiveName 'user-api.war'
+    archiveName 'inventory-api.war'
 }
