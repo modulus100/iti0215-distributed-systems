@@ -7,15 +7,19 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
-@Path("user")
+import taltech.core.user.User;
+
+@Path("inventory")
 @ApplicationScoped
-public class UserController {
+public class InventoryController {
 
     @GET
-    @Path("{id}")
+    @Path("item/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getUser(int id) {
-        return Response.ok(id).build();
+        return Response
+                .ok(new User(id, "TaraDestroyer"))
+                .build();
     }
 }
 

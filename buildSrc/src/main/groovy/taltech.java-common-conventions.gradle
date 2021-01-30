@@ -19,6 +19,10 @@ dependencies {
         implementation 'org.apache.commons:commons-text:1.9'
     }
 
+    // Generated getters and setters
+    compileOnly 'org.projectlombok:lombok:1.18.16'
+    annotationProcessor 'org.projectlombok:lombok:1.18.16'
+
     // Use JUnit Jupiter API for testing.
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.2'
 

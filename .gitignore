@@ -8,3 +8,5 @@ buildSrc/build
 
 list/build
 utilities/build
+user-microservice/build
+inventory-microservice/build
