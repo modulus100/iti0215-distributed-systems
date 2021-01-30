@@ -8,4 +8,4 @@
  */
 
 rootProject.name = 'iti0215-distributed-systems'
-include('user-microservice', 'inventory-microservice' , 'list', 'utilities', 'core')
+include('user-microservice', 'inventory-microservice' , 'core')
