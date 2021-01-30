@@ -4,14 +4,18 @@
 
 plugins {
     id 'taltech.java-application-conventions'
+    id 'war'
 }
 
+group 'taltech'
+version '1.0-SNAPSHOT'
+
 dependencies {
+    providedCompile 'jakarta.platform:jakarta.jakartaee-api:9.0.0'
     implementation 'org.apache.commons:commons-text'
     implementation project(':utilities')
 }
 
-application {
-    // Define the main class for the application.
-    mainClass = 'taltech.app.App'
+war {
+    archiveName 'user-api.war'
 }
