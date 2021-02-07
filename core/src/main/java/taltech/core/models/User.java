@@ -1,4 +1,4 @@
-package taltech.core.user;
+package taltech.core.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

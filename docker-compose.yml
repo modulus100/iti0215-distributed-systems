@@ -9,6 +9,8 @@ services:
       - 8080:8080
       - 8787:8787
     command: /opt/jboss/wildfly/bin/standalone.sh -b 0.0.0.0 -bmanagement 0.0.0.0 --debug *:8787
+    depends_on:
+      - pgdb
 
   inventory-api:
     build: inventory-microservice
@@ -18,13 +20,29 @@ services:
       - 8081:8080
       - 8788:8787
     command: /opt/jboss/wildfly/bin/standalone.sh -b 0.0.0.0 -bmanagement 0.0.0.0 --debug *:8787
+    depends_on:
+      - pgdb
+
+  pgdb:
+    image: postgres
+    container_name: pgdb
+    ports:
+    - 5432:5432
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_PORT=5432
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 
 #  client:
 #    build: client
 #    volumes:
 #      - ./client:/usr/src/client
 #    ports:
-#     - "8080:8080"
+#     - "4000:4000"
 #    depends_on:
-#      - api-gateway
+#      - user-api
+#      - inventory-api
 
