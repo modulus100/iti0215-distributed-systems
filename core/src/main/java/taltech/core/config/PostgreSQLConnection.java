@@ -11,9 +11,9 @@ public class PostgreSQLConnection {
 
     public static Optional<Connection> getConnection() {
         if (connection.isEmpty()) {
-            String url = "jdbc:postgresql://localhost:5432/sampledb";
+            String url = "jdbc:postgresql://localhost:5432/postgres";
             String user = "postgres";
-            String password = "aqua1-Was";
+            String password = "postgres";
 
             try {
                 connection = Optional.ofNullable(DriverManager.getConnection(url, user, password));
