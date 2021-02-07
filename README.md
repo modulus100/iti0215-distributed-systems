@@ -18,5 +18,5 @@ and gradle version 6.8.1.
 `
 
 ## Build and Run all microservices 
-`docker-compose up --build
+`gradle build && docker-compose up --build
 `
