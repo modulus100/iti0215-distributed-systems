@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  user-api:
+    build: user-microservice
+    volumes:
+      - ./user-microservice:/opt/jboss/wildfly/standalone/deployments
+    ports:
+      - 8080:8080
+      - 8787:8787
+    command: /opt/jboss/wildfly/bin/standalone.sh -b 0.0.0.0 -bmanagement 0.0.0.0 --debug *:8787
+
+  inventory-api:
+    build: inventory-microservice
+    volumes:
+      - ./inventory-microservice:/opt/jboss/wildfly/standalone/deployments
+    ports:
+      - 8081:8080
+      - 8788:8787
+    command: /opt/jboss/wildfly/bin/standalone.sh -b 0.0.0.0 -bmanagement 0.0.0.0 --debug *:8787
+
+#  client:
+#    build: client
+#    volumes:
+#      - ./client:/usr/src/client
+#    ports:
+#     - "8080:8080"
+#    depends_on:
+#      - api-gateway
+
