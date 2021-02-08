@@ -1,14 +1,12 @@
 package taltech.app.controller;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import taltech.core.models.User;
+import taltech.app.requests.CreateItemRequest;
+import taltech.core.models.Item;
 
 @Path("inventory/item")
 @ApplicationScoped
@@ -17,9 +15,35 @@ public class InventoryController {
     @GET
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getUser(@PathParam("id") int id) {
+    public Response getItem(@PathParam("id") int id) {
         return Response
-                .ok(new User(id, "TaraDestroyer"))
+                .ok(new Item(1, 1, "iphone", "just an item"))
+                .build();
+    }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getItems() {
+        return Response
+                .ok(new Item(1, 1, "iphone", "just an item"))
+                .build();
+    }
+
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response createItem(CreateItemRequest request) {
+        return Response
+                .ok(new Item(1, 1, request.getName(), request.getDescription()))
+                .build();
+    }
+
+    @DELETE
+    @Path("{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response deleteItem(@PathParam("id") int id) {
+        return Response
+                .ok(new Item(1, 1, "iphone", "just an item"))
                 .build();
     }
 }
