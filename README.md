@@ -20,3 +20,11 @@ and gradle version 6.8.1.
 ## Build and Run all microservices 
 `gradle build && docker-compose up --build
 `
+
+## Request examples
+`http://localhost:8080/user-api/v1/user
+`
+`http://localhost:8080/user-api/v1/user/10
+`
+`http://localhost:8081/inventory-api/v1/inventory/item/10
+`

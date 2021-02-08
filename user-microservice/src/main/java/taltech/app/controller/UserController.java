@@ -8,7 +8,7 @@ import javax.ws.rs.core.Response;
 
 import taltech.app.controller.requests.CreateUserRequest;
 import taltech.app.services.UserService;
-import taltech.core.models.User;
+
 
 @Path("user")
 @RequestScoped
@@ -22,7 +22,7 @@ public class UserController {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getUser(@PathParam("id") int id) {
         return Response
-                .ok(new User(id, "TaraDestroyer"))
+                .ok(userService.getById(id))
                 .build();
     }
 
@@ -30,7 +30,7 @@ public class UserController {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getUsers() {
         return Response
-                .ok(userService.getUsers())
+                .ok(userService.getAll())
                 .build();
     }
 
@@ -38,8 +38,9 @@ public class UserController {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response createUser(CreateUserRequest request) {
+        userService.createUser(request);
         return Response
-                .ok(new User(1, request.getName()))
+                .ok()
                 .build();
     }
 
@@ -47,8 +48,9 @@ public class UserController {
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response deleteUser(@PathParam("id") int id) {
+        userService.deleteById(id);
         return Response
-                .ok(new User(id, "TaraDestroyer"))
+                .ok()
                 .build();
     }
 }
