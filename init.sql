@@ -11,7 +11,7 @@ CREATE TABLE item(
     PRIMARY KEY(id),
     CONSTRAINT fk_customer
         FOREIGN KEY(app_user_id)
-            REFERENCES app_user(id)
+            REFERENCES app_user(id) ON DELETE CASCADE
 );
 
 INSERT INTO app_user(name) VALUES ('admin');
