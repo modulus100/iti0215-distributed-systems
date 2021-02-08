@@ -24,7 +24,5 @@ and gradle version 6.8.1.
 ## Request examples
 `http://localhost:8080/user-api/v1/user
 `
-`http://localhost:8080/user-api/v1/user/10
-`
 `http://localhost:8081/inventory-api/v1/item/10
 `
