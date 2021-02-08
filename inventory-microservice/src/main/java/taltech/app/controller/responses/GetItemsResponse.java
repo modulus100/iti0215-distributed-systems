@@ -1,4 +1,4 @@
-package taltech.app.responses;
+package taltech.app.controller.responses;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

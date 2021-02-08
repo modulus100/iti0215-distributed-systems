@@ -6,7 +6,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import taltech.app.requests.CreateItemRequest;
+import taltech.app.controller.requests.CreateItemRequest;
 import taltech.app.services.ItemService;
 
 @Path("item")

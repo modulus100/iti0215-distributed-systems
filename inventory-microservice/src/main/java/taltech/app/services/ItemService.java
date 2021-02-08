@@ -1,9 +1,9 @@
 package taltech.app.services;
 
-import taltech.app.requests.CreateItemRequest;
-import taltech.app.responses.CreateItemResponse;
-import taltech.app.responses.GetItemResponse;
-import taltech.app.responses.GetItemsResponse;
+import taltech.app.controller.requests.CreateItemRequest;
+import taltech.app.controller.responses.CreateItemResponse;
+import taltech.app.controller.responses.GetItemResponse;
+import taltech.app.controller.responses.GetItemsResponse;
 import taltech.core.models.Item;
 import taltech.core.repositories.ItemRepository;
 
