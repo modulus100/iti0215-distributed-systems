@@ -7,4 +7,6 @@ buildSrc/build
 user-microservice/build
 inventory-microservice/build
 core/build
+
 client/node_modules
+client/.idea
