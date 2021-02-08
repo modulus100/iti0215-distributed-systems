@@ -1,6 +1,7 @@
 package taltech.app.services;
 
 import taltech.app.controller.requests.CreateUserRequest;
+import taltech.app.controller.responses.CreateUserResponse;
 import taltech.app.controller.responses.GetUserResponse;
 import taltech.app.controller.responses.GetUsersResponse;
 import taltech.core.models.User;
@@ -29,9 +30,10 @@ public class UserService {
     public void deleteById(int id) {
         repository.deleteById(id);
     }
-    public void createUser(CreateUserRequest request) {
+
+    public CreateUserResponse createUser(CreateUserRequest request) {
         User user = new User();
         user.setName(request.getName());
-        repository.create(user);
+        return new CreateUserResponse(repository.create(user)) ;
     }
 }

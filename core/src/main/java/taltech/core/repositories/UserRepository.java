@@ -70,15 +70,24 @@ public class UserRepository {
     }
 
     @SneakyThrows
-    public void create(User user) {
+    public int create(User user) {
         Optional<Connection> connection = PostgreSQLConnection.getConnection();
-        String query = "insert into app_user(name)values ('" + user.getName() + "')";
+        String query = "insert into app_user(name) values ('" + user.getName() + "') returning id;";
+        int id = 0;
 
         if (connection.isPresent()) {
             Statement stmt = connection.get().createStatement();
-            stmt.execute(query);
+            ResultSet rs = stmt.executeQuery(query);
+
+            while (rs.next()) {
+                id = rs.getInt("id");
+            }
+
+            rs.close();
             stmt.close();
             connection.get().close();
         }
+
+        return id;
     }
 }

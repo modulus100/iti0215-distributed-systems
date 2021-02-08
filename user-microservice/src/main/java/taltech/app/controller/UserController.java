@@ -9,6 +9,8 @@ import javax.ws.rs.core.Response;
 import taltech.app.controller.requests.CreateUserRequest;
 import taltech.app.services.UserService;
 
+import java.net.URI;
+
 
 @Path("user")
 @RequestScoped
@@ -38,9 +40,9 @@ public class UserController {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response createUser(CreateUserRequest request) {
-        userService.createUser(request);
         return Response
-                .ok()
+                .ok(userService.createUser(request))
+                .status(201)
                 .build();
     }
 
