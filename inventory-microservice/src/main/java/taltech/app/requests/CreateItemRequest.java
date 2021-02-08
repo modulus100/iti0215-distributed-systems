@@ -1,4 +1,4 @@
-package taltech.app.controller.requests;
+package taltech.app.requests;
 
 import lombok.Data;
 
