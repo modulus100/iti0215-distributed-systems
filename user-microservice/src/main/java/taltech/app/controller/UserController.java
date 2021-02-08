@@ -1,16 +1,21 @@
 package taltech.app.controller;
 
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import taltech.app.controller.requests.CreateUserRequest;
+import taltech.app.services.UserService;
 import taltech.core.models.User;
 
 @Path("user")
 @RequestScoped
 public class UserController {
+
+    @Inject
+    private UserService userService;
 
     @GET
     @Path("{id}")
@@ -25,7 +30,7 @@ public class UserController {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getUsers() {
         return Response
-                .ok(new User(1, "TaraDestroyer"))
+                .ok(userService.getUsers())
                 .build();
     }
 

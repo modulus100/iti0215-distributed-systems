@@ -1,6 +1,6 @@
 package taltech.app.controller;
 
-import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -9,7 +9,7 @@ import taltech.app.requests.CreateItemRequest;
 import taltech.core.models.Item;
 
 @Path("inventory/item")
-@ApplicationScoped
+@RequestScoped
 public class InventoryController {
 
     @GET
