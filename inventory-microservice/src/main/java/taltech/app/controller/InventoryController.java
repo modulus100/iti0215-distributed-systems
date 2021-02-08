@@ -39,6 +39,7 @@ public class InventoryController {
     public Response createItem(CreateItemRequest request) {
         return Response
                 .ok(itemService.create(request))
+                .status(Response.Status.CREATED)
                 .build();
     }
 

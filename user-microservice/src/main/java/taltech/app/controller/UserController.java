@@ -40,7 +40,7 @@ public class UserController {
     public Response createUser(CreateUserRequest request) {
         return Response
                 .ok(userService.createUser(request))
-                .status(201)
+                .status(Response.Status.CREATED)
                 .build();
     }
 
