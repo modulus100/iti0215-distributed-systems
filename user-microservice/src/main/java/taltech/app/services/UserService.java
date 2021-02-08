@@ -12,6 +12,7 @@ import javax.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
 public class UserService {
+
     private UserRepository repository;
 
     @PostConstruct

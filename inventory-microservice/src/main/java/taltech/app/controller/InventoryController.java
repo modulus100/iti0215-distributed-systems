@@ -1,23 +1,27 @@
 package taltech.app.controller;
 
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import taltech.app.requests.CreateItemRequest;
-import taltech.core.models.Item;
+import taltech.app.services.ItemService;
 
-@Path("inventory/item")
+@Path("item")
 @RequestScoped
 public class InventoryController {
+
+    @Inject
+    private ItemService itemService;
 
     @GET
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getItem(@PathParam("id") int id) {
         return Response
-                .ok(new Item(1, 1, "iphone", "just an item"))
+                .ok(itemService.getById(id))
                 .build();
     }
 
@@ -25,7 +29,7 @@ public class InventoryController {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getItems() {
         return Response
-                .ok(new Item(1, 1, "iphone", "just an item"))
+                .ok(itemService.getAll())
                 .build();
     }
 
@@ -34,7 +38,7 @@ public class InventoryController {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response createItem(CreateItemRequest request) {
         return Response
-                .ok(new Item(1, 1, request.getName(), request.getDescription()))
+                .ok(itemService.create(request))
                 .build();
     }
 
@@ -42,8 +46,9 @@ public class InventoryController {
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response deleteItem(@PathParam("id") int id) {
+        itemService.deleteById(id);
         return Response
-                .ok(new Item(1, 1, "iphone", "just an item"))
+                .ok()
                 .build();
     }
 }
