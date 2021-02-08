@@ -9,8 +9,6 @@ import javax.ws.rs.core.Response;
 import taltech.app.controller.requests.CreateUserRequest;
 import taltech.app.services.UserService;
 
-import java.net.URI;
-
 
 @Path("user")
 @RequestScoped
