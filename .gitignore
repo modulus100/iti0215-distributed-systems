@@ -1,13 +1,9 @@
 .gradle
 .idea
 
-app/build
-
 buildSrc/.gradle
 buildSrc/build
 
-list/build
-utilities/build
 user-microservice/build
 inventory-microservice/build
 core/build
