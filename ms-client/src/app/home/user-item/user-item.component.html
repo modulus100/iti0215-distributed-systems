@@ -3,10 +3,7 @@
 
   <div *ngIf="!(loading$ | async)">
     <mat-list>
-      <mat-list-item
-        fxLayout="row"
-        fxLayoutAlign="space-between center"
-        *ngFor="let user of users" [routerLink]="['/user-items', user.id]">
+      <mat-list-item fxLayout="row" fxLayoutAlign="space-between center" *ngFor="let user of users">
 
         <h3 matLine>id: {{user.id}} name: {{user.name}} </h3>
         <mat-icon matListIcon (click)="delete(user.id)">delete</mat-icon>

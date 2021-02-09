@@ -20,13 +20,15 @@ import {FormsModule} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatDialogModule} from '@angular/material/dialog';
+import { UserItemComponent } from './home/user-item/user-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopBarComponent,
     HomeComponent,
-    AddDialogComponent
+    AddDialogComponent,
+    UserItemComponent
   ],
   imports: [
     BrowserModule,
