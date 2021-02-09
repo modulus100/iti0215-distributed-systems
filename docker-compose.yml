@@ -35,14 +35,14 @@ services:
     ports:
       - 5432:5432
 
-  ms-client:
-    build: ms-client
-    volumes:
-      - ./ms-client:/usr/src/app/ms-client
-      - /usr/src/app/ms-client/node_modules
-    ports:
-      - 4200:4200
-    depends_on:
-      - user-api
-      - inventory-api
+#  ms-client:
+#    build: ms-client
+#    volumes:
+#      - ./ms-client:/usr/src/app/ms-client
+#      - /usr/src/app/ms-client/node_modules
+#    ports:
+#      - 4200:4200
+#    depends_on:
+#      - user-api
+#      - inventory-api
 
