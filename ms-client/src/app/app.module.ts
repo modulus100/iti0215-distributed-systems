@@ -15,12 +15,18 @@ import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatButtonModule} from '@angular/material/button';
+import { AddDialogComponent } from './home/add-dialog/add-dialog.component';
+import {FormsModule} from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopBarComponent,
-    HomeComponent
+    HomeComponent,
+    AddDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -35,11 +41,16 @@ import {MatButtonModule} from '@angular/material/button';
     MatIconModule,
     FlexLayoutModule,
     MatButtonModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDialogModule
   ],
   exports: [
     CommonModule,
     MatProgressSpinnerModule,
-    MatCardModule
+    MatCardModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

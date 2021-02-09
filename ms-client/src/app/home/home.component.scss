@@ -21,4 +21,9 @@
   background-color: rgba(0, 0, 0, 0.08);
 }
 
+:host ::ng-deep .mat-list-base .mat-list-item .mat-list-item-content {
+  width: 100%;
+}
+
+
 

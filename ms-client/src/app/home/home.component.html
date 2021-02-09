@@ -3,18 +3,18 @@
 
   <div *ngIf="!(loading$ | async)">
     <mat-list>
-      <mat-list-item *ngFor="let user of (users$ | async)">
-        <mat-icon matListIcon>account_box</mat-icon>
-        <h3 matLine>name: {{user.name}} </h3>
-        <p matLine>
-          <span> id: {{user.id}}</span>
-        </p>
+      <mat-list-item fxLayout="row" fxLayoutAlign="space-between center" *ngFor="let user of users">
+
+        <h3 matLine>id: {{user.id}} name: {{user.name}} </h3>
+        <mat-icon matListIcon (click)="delete(user.id)">delete</mat-icon>
+
         <mat-divider></mat-divider>
       </mat-list-item>
+
     </mat-list>
 
     <div fxLayoutAlign="end start">
-      <button mat-button color="primary">Add</button>
+      <button mat-button color="primary" (click)="openDialog()">Add</button>
     </div>
 
   </div>
