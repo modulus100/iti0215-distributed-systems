@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {UserApiServiceService} from '../services/user-api-service.service';
+import {UserApiService} from '../services/user-api.service';
 import {GetUsersResponseModel} from '../services/responses/get-users-response.model';
 import {Observable, of} from 'rxjs';
 import {UserModel} from '../models/user.model';
@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
   users: UserModel[] = [];
 
   constructor(
-    private userApiService: UserApiServiceService,
+    private userApiService: UserApiService,
     public dialog: MatDialog
   ) { }
 

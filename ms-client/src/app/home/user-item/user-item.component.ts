@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Observable, of} from 'rxjs';
 import {UserModel} from '../../models/user.model';
-import {UserApiServiceService} from '../../services/user-api-service.service';
+import {UserApiService} from '../../services/user-api.service';
 import {MatDialog} from '@angular/material/dialog';
 import {GetUsersResponseModel} from '../../services/responses/get-users-response.model';
 import {AddDialogComponent} from '../add-dialog/add-dialog.component';
@@ -19,7 +19,7 @@ export class UserItemComponent implements OnInit {
   users: UserModel[] = [];
 
   constructor(
-    private userApiService: UserApiServiceService,
+    private userApiService: UserApiService,
     public dialog: MatDialog
   ) { }
 

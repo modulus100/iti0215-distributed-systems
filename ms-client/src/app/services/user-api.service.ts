@@ -9,7 +9,7 @@ import {GetUserResponseModel} from './responses/get-user-response.model';
 @Injectable({
   providedIn: 'root'
 })
-export class UserApiServiceService {
+export class UserApiService {
   private baseURL = 'http://localhost:8080/user-api/v1/user';
 
   constructor(private http: HttpClient) { }
