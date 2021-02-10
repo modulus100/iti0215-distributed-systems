@@ -33,4 +33,16 @@ docker-compose.yml and run the client locally.
 
 ## Structure
 
+### User api (microservice)
+Base url: http://localhost:8080/user-api/v1/user
+
+### Inventory api (microservice)
+Base url: http://localhost:8081/inventory-api/v1/item
+
+### MsTest Client (frontend)
+Base url: http://localhost:4200
+
+### PostgreSQL (database)
+database: postgres
+
 ![alt text](ms-structure.png "kMeans")
