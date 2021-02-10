@@ -36,15 +36,19 @@ and **Docker**.
 ## Structure
 
 ### User api (microservice)
-Base url: http://localhost:8080/user-api/v1/user
+Base url: http://localhost:8080/user-api/v1/user  
+Provides REST Api endpoints for user CRUD operations.
 
 ### Inventory api (microservice)
-Base url: http://localhost:8081/inventory-api/v1/item
+Base url: http://localhost:8081/inventory-api/v1/item  
+Provides REST Api endpoints for user's item CRUD operations.
 
 ### MsTest Client (frontend)
-Base url: http://localhost:4200
+Base url: http://localhost:4200  
+Simple SPA client which can be used for testing ms REST endpoints.
 
 ### PostgreSQL (database)
-database: postgres
+Microservices use the database for storing users and user's items.  
+Ideally each ms should have it's own database but for the demo it's not required.
 
-![alt text](ms-structure.png "kMeans")
+![alt text](ms-structure.png "ms structure")
