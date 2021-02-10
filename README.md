@@ -48,12 +48,10 @@ Provides REST Api endpoints for user's item CRUD operations.
 ### MsTest Client (frontend)
 Base url: http://localhost:4200  
 Simple SPA client which can be used for testing ms REST endpoints.
+![alt text](ms-client-demo.png "ms client")
 
 ### PostgreSQL (database)
 Microservices use the database for storing users and user's items.  
 Ideally each ms should have it's own database but for the demo it's not required.
 
 ![alt text](ms-structure.png "ms structure")
-
-### MsTest Client Demo
-![alt text](ms-client-demo.png "ms client")
