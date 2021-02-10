@@ -17,7 +17,7 @@ docker-compose.yml and run the client locally.
 `npm init
 `
 
-## Build and Run frontend locally
+## Build and Run the frontend locally :rocket:
 `npm start
 `
 
