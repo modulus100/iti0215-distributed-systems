@@ -47,7 +47,7 @@ Provides REST Api endpoints for user's item CRUD operations.
 
 ### MsTest Client (frontend)
 Base url: http://localhost:4200  
-Simple SPA client which can be used for testing ms REST endpoints.
+Simple SPA client which can be used for testing ms REST endpoints.  
 ![alt text](ms-client-demo.png "ms client")
 
 ### PostgreSQL (database)
