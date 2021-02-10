@@ -20,7 +20,11 @@ public class ItemService {
         repository = new ItemRepository();
     }
 
-    public GetItemsResponse getAll() {
+    public GetItemsResponse getAll(int userId) {
+        if (userId != 0) {
+            return new GetItemsResponse(repository.getAllByUserId(userId));
+        }
+
         return new GetItemsResponse(repository.getAll());
     }
 

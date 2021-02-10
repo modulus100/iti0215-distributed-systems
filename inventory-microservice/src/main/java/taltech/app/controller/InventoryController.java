@@ -27,9 +27,9 @@ public class InventoryController {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getItems() {
+    public Response getItems(@DefaultValue("0") @QueryParam("userId") int userId) {
         return Response
-                .ok(itemService.getAll())
+                .ok(itemService.getAll(userId))
                 .build();
     }
 

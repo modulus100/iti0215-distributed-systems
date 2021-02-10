@@ -38,7 +38,56 @@ public class ItemRepository {
     }
 
     @SneakyThrows
+    public ArrayList<Item> getAllByUserId(int userId) {
+        Optional<Connection> connection = PostgreSQLConnection.getConnection();
+        ArrayList<Item> items = new ArrayList<>();
+
+        if (connection.isPresent()) {
+            Statement stmt = connection.get().createStatement();
+            ResultSet rs = stmt.executeQuery("select * from item where app_user_id = " + userId);
+
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                String description = rs.getString("description");
+                items.add(new Item(id, userId, name, description));
+            }
+
+            rs.close();
+            stmt.close();
+            connection.get().close();
+        }
+
+        return items;
+    }
+
+    @SneakyThrows
     public Item getById(int id) {
+        Optional<Connection> connection = PostgreSQLConnection.getConnection();
+        Item item = null;
+        String query = "select * from item where id = " + id;
+
+        if (connection.isPresent()) {
+            Statement stmt = connection.get().createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+
+            while (rs.next()) {
+                int userId = rs.getInt("app_user_id");
+                String name = rs.getString("name");
+                String description = rs.getString("description");
+                item = new Item(id, userId, name, description);
+            }
+
+            rs.close();
+            stmt.close();
+            connection.get().close();
+        }
+
+        return item;
+    }
+
+    @SneakyThrows
+    public Item getByUserId(int id) {
         Optional<Connection> connection = PostgreSQLConnection.getConnection();
         Item item = null;
         String query = "select * from item where id = " + id;

@@ -21,6 +21,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatDialogModule} from '@angular/material/dialog';
 import { UserItemComponent } from './home/user-item/user-item.component';
+import { AddItemDialogComponent } from './home/add-item-dialog/add-item-dialog.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { UserItemComponent } from './home/user-item/user-item.component';
     TopBarComponent,
     HomeComponent,
     AddDialogComponent,
-    UserItemComponent
+    UserItemComponent,
+    AddItemDialogComponent
   ],
   imports: [
     BrowserModule,

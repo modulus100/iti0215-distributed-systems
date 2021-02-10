@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {GetUsersResponseModel} from './responses/get-users-response.model';
-import {GetUserResponseModel} from './responses/get-user-response.model';
-import {CreateUserRequestModel} from './requests/create-user-request.model';
 import {CreateUserResponseModel} from './responses/create-user-response.model';
+import {GetItemsResponseModel} from './responses/get-items-response.model';
+import {CreateItemRequestModel} from './requests/create-item-request.model';
+import {CreateItemResponseModel} from './responses/create-item-response.model';
+import {GetItemResponseModel} from './responses/get-item-response.model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,15 +15,19 @@ export class ItemApiService {
 
   constructor(private http: HttpClient) { }
 
-  getByiId(id: number): Observable<GetUserResponseModel> {
-    return this.http.get<GetUserResponseModel>(`${this.baseURL}/${id}`);
+  getByUserId(userId: number): Observable<GetItemsResponseModel> {
+    return this.http.get<GetItemsResponseModel>(`${this.baseURL}?userId=${userId}`);
+  }
+
+  getById(id: number): Observable<GetItemResponseModel> {
+    return this.http.get<GetItemResponseModel>(`${this.baseURL}/${id}`);
   }
 
   delete(id: number): Observable<any> {
     return this.http.delete(`${this.baseURL}/${id}`);
   }
 
-  create(request: CreateUserRequestModel): Observable<CreateUserResponseModel> {
+  create(request: CreateItemRequestModel): Observable<CreateItemResponseModel> {
     return this.http.post<CreateUserResponseModel>(this.baseURL, request);
   }
 }

@@ -1,17 +1,24 @@
 <div fxLayout="column" fxLayoutAlign="space-around center" >
-  <div><h3>Users</h3></div>
+  <div><h3>User's item(s)</h3></div>
 
   <div *ngIf="!(loading$ | async)">
-    <mat-list>
-      <mat-list-item fxLayout="row" fxLayoutAlign="space-between center" *ngFor="let user of users">
+    <div *ngIf="items.length > 0">
+      <mat-list>
+        <mat-list-item fxLayout="row" fxLayoutAlign="space-between center" *ngFor="let item of items">
 
-        <h3 matLine>id: {{user.id}} name: {{user.name}} </h3>
-        <mat-icon matListIcon (click)="delete(user.id)">delete</mat-icon>
+          <h3 matLine>name: {{item.name}}</h3>
+          <h3 matLine>description: {{item.description}} </h3>
+          <mat-icon matListIcon (click)="delete(item.id)">delete</mat-icon>
 
-        <mat-divider></mat-divider>
-      </mat-list-item>
+          <mat-divider></mat-divider>
+        </mat-list-item>
 
-    </mat-list>
+      </mat-list>
+    </div>
+
+    <div style="margin-left: 18px" *ngIf="items.length == 0">
+      <h3>Empty stock</h3>
+    </div>
 
     <div fxLayoutAlign="space-between center">
       <button mat-button color="primary" [routerLink]="['']">Back</button>

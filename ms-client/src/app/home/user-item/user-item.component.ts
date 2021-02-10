@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Observable, of} from 'rxjs';
-import {UserModel} from '../../models/user.model';
-import {UserApiService} from '../../services/user-api.service';
 import {MatDialog} from '@angular/material/dialog';
-import {GetUsersResponseModel} from '../../services/responses/get-users-response.model';
-import {AddDialogComponent} from '../add-dialog/add-dialog.component';
+import {ItemApiService} from '../../services/item-api.service';
+import {GetItemsResponseModel} from '../../services/responses/get-items-response.model';
+import {ItemModel} from '../../models/item.model';
+import {ActivatedRoute} from '@angular/router';
+import {AddItemDialogComponent} from '../add-item-dialog/add-item-dialog.component';
+import {CreateItemResponseModel} from '../../services/responses/create-item-response.model';
 import {concatMap, tap} from 'rxjs/operators';
-import {CreateUserResponseModel} from '../../services/responses/create-user-response.model';
-import {GetUserResponseModel} from '../../services/responses/get-user-response.model';
+import {GetItemResponseModel} from '../../services/responses/get-item-response.model';
 
 @Component({
   selector: 'app-user-item',
@@ -16,38 +17,47 @@ import {GetUserResponseModel} from '../../services/responses/get-user-response.m
 })
 export class UserItemComponent implements OnInit {
   loading$: Observable<boolean> = of(true);
-  users: UserModel[] = [];
+  items: ItemModel[] = [];
+  userId = 0;
 
   constructor(
-    private userApiService: UserApiService,
+    private activatedRoute: ActivatedRoute,
+    private itemApiService: ItemApiService,
     public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
-    this.userApiService.getUsers().subscribe((response: GetUsersResponseModel) => {
-        this.users = response.users;
-      }, (error) => console.log(error),
-      () => {
-        this.loading$ = of(false);
-      });
+    this.activatedRoute.paramMap.subscribe(params => {
+      this.userId = parseInt(params.get('id') || '0', 10);
+      this.itemApiService.getByUserId(this.userId).subscribe((response: GetItemsResponseModel) => {
+          this.items = response.items;
+        }, (error) => console.log(error),
+        () => {
+          this.loading$ = of(false);
+        });
+    });
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(AddDialogComponent, {
+    const dialogRef = this.dialog.open(AddItemDialogComponent, {
       width: '250px',
-      data: {name: ''}
+      data: {name: '', description: ''}
     });
 
-    dialogRef.afterClosed().subscribe(name => {
-      let newIdNumber = 0;
+    dialogRef.afterClosed().subscribe(next => {
+      let newItemId = 0;
       this.loading$ = of(true);
-      this.userApiService.create({name}).pipe(
-        tap((response: CreateUserResponseModel) => {
-          newIdNumber = response.id;
+      this.itemApiService.create({
+        name: next.name,
+        description: next.description,
+        userId: this.userId
+      }).pipe(
+        tap((response: CreateItemResponseModel) => {
+          newItemId = response.id;
         }),
-        concatMap( () => this.userApiService.getByiId(newIdNumber))
-      ).subscribe((response: GetUserResponseModel) => {
-          this.users.unshift(response.user);
+        concatMap(() => this.itemApiService.getById(newItemId))
+      ).subscribe((response: GetItemResponseModel) => {
+          this.items.unshift(response.item);
           this.loading$ = of(false);
         }, error => console.log(error),
         () => {
@@ -58,8 +68,8 @@ export class UserItemComponent implements OnInit {
 
   delete(id: number): void {
     this.loading$ = of(true);
-    this.userApiService.delete(id).subscribe(() => {
-        this.users = this.users.filter(user => user.id !== id);
+    this.itemApiService.delete(id).subscribe(() => {
+        this.items = this.items.filter(item => item.id !== id);
       }, error => console.log(error) ,
       () => {
         this.loading$ = of(false);
