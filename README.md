@@ -2,9 +2,11 @@
 
 The main goal is to create project which represents a minimalistic microservice
 architecture. This project is based on Java 11  and gradle version 6.8.1.
-To run all services please take a look at the **Build and Run all microservices.
+To run all services please take a look at the **Build and Run all microservices**.
 If you want ro run services faster, then please comment out the ms-client in the
-docker-compose.yml and run the client locally.
+docker-compose.yml and run the client locally.  
+Required tools: **Gradle** starting from 6.8.1, **npm** any 6th version
+and **Docker**.
 
 ## Build backend
 `gradle build
