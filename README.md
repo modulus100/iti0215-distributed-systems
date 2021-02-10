@@ -29,8 +29,9 @@ and **Docker**.
 `
 
 ## Request examples
-`http://localhost:8080/user-api/v1/user
+`http://localhost:8080/user-api/v1/user  
 `
+  
 `http://localhost:8081/inventory-api/v1/item/10
 `
 
