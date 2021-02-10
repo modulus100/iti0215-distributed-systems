@@ -13,7 +13,6 @@ and gradle version 6.8.1.
 `
 
 ## Tests
-
 `gradle test
 `
 
@@ -26,3 +25,7 @@ and gradle version 6.8.1.
 `
 `http://localhost:8081/inventory-api/v1/item/10
 `
+
+## Structure
+
+![alt text](ms-structure.png "kMeans")
