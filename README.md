@@ -7,7 +7,11 @@ If you want ro run services faster, then please comment out the ms-client in the
 docker-compose.yml and run the client locally.  
 
 Required tools: **Gradle** starting from 6.8.1, **npm** any 6th version
-and **Docker**.
+and **Docker**.  
+
+### What this app can do
+You can add a user and for each user you can add user's items, very basic
+service which can be upgraded if needed.
 
 ## Build backend
 `gradle build
