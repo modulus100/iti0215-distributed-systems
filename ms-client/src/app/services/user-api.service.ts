@@ -10,7 +10,7 @@ import {GetUserResponseModel} from './responses/get-user-response.model';
   providedIn: 'root'
 })
 export class UserApiService {
-  private baseURL = 'http://localhost:8080/user-api/v1/user';
+  private baseURL = 'http://18.192.45.2:8080/user-api/v1/user';
 
   constructor(private http: HttpClient) { }
 
