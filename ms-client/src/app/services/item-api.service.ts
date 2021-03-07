@@ -11,7 +11,7 @@ import {GetItemResponseModel} from './responses/get-item-response.model';
   providedIn: 'root'
 })
 export class ItemApiService {
-  private baseURL = 'http://18.184.164.202:8081/inventory-api/v1/item';
+  private baseURL = 'http://localhost:8081/inventory-api/v1/item';
 
   constructor(private http: HttpClient) { }
 
