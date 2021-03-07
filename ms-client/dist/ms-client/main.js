@@ -29,7 +29,7 @@ __webpack_require__.r(__webpack_exports__);
 class ItemApiService {
     constructor(http) {
         this.http = http;
-        this.baseURL = 'http://18.192.45.2:8081/inventory-api/v1/item';
+        this.baseURL = 'http://18.184.164.202:8081/inventory-api/v1/item';
     }
     getByUserId(userId) {
         return this.http.get(`${this.baseURL}?userId=${userId}`);
@@ -744,7 +744,7 @@ __webpack_require__.r(__webpack_exports__);
 class UserApiService {
     constructor(http) {
         this.http = http;
-        this.baseURL = 'http://18.192.45.2:8080/user-api/v1/user';
+        this.baseURL = 'http://18.184.164.202:8080/user-api/v1/user';
     }
     getUsers() {
         return this.http.get(`${this.baseURL}`);
